@@ -1,5 +1,6 @@
 "use strict";
-String.prototype.like = function (likeCondition, matchPartial, caseSensitive) {
+Object.defineProperty(exports, "__esModule", { value: true });
+function like(stringToMatch, likeCondition, matchPartial, caseSensitive) {
     if (matchPartial == undefined) {
         matchPartial = false;
     }
@@ -8,9 +9,8 @@ String.prototype.like = function (likeCondition, matchPartial, caseSensitive) {
     }
     //Escape regex characters from likeCondition
     likeCondition = likeCondition.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
-    var thisString = this.toString();
     if (!caseSensitive) {
-        thisString = thisString.toUpperCase();
+        stringToMatch = stringToMatch.toUpperCase();
         likeCondition = likeCondition.toUpperCase();
     }
     var likeRegexString = likeCondition.replace(/\%/g, ".*");
@@ -18,8 +18,9 @@ String.prototype.like = function (likeCondition, matchPartial, caseSensitive) {
         likeRegexString = "^" + likeRegexString + "$";
     }
     var likeRegexPattern = new RegExp(likeRegexString);
-    if (likeRegexPattern.test(thisString)) {
+    if (likeRegexPattern.test(stringToMatch)) {
         return true;
     }
     return false;
-};
+}
+exports.like = like;

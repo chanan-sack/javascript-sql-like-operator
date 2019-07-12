@@ -1,10 +1,11 @@
 {
   "name": "sql-like-operator",
-  "version": "0.0.2",
-  "description": "Provides the string object with a like operator which behaves similar to a SQL LIKE operator.",
+  "version": "1.1.0",
+  "description": "Provides a like function that behaves similar to a SQL LIKE operator.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "tsc && node test.js"
   },
   "keywords": [
     "sql",

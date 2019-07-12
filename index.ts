@@ -1,9 +1,4 @@
-declare interface String {
-    like(likeCondition : string, matchPartial?: boolean, caseSensitive?: boolean) : boolean;
-}
-
-String.prototype.like = function ( likeCondition: string, matchPartial?: boolean, caseSensitive?: boolean): boolean {
-
+export function like(stringToMatch: string, likeCondition : string, matchPartial?: boolean, caseSensitive?: boolean): boolean {
     if(matchPartial == undefined) {
         matchPartial = false;
     }
@@ -14,9 +9,8 @@ String.prototype.like = function ( likeCondition: string, matchPartial?: boolean
     //Escape regex characters from likeCondition
     likeCondition = likeCondition.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 
-    let thisString: string = this.toString();
     if(!caseSensitive){
-         thisString = thisString.toUpperCase();
+        stringToMatch = stringToMatch.toUpperCase();
          likeCondition = likeCondition.toUpperCase();
     }
 
@@ -28,8 +22,8 @@ String.prototype.like = function ( likeCondition: string, matchPartial?: boolean
     
     let likeRegexPattern: RegExp = new RegExp(likeRegexString);
     
-    if(likeRegexPattern.test(thisString)) {
+    if(likeRegexPattern.test(stringToMatch)) {
         return true
     }
     return false;
-};
+}
