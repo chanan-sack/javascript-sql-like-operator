@@ -1,4 +1,4 @@
-export function like(stringToMatch: string, likeCondition : string, matchPartial?: boolean, caseSensitive?: boolean): boolean {
+export function like(stringToMatch: string|number, likeCondition : string, matchPartial?: boolean, caseSensitive?: boolean): boolean {
     //Set default values
     if(stringToMatch == undefined) {
         stringToMatch = "";
@@ -11,6 +11,10 @@ export function like(stringToMatch: string, likeCondition : string, matchPartial
     }
     if(caseSensitive == undefined) {
         caseSensitive = true;
+    }
+
+    if (typeof stringToMatch != "string") {
+        stringToMatch = stringToMatch.toString();
     }
     
     //Escape regex characters from likeCondition

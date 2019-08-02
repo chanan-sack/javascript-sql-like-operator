@@ -1,6 +1,6 @@
 {
   "name": "sql-like-operator",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Provides a like function that behaves similar to a SQL LIKE operator.",
   "main": "index.js",
   "scripts": {

@@ -14,6 +14,9 @@ function like(stringToMatch, likeCondition, matchPartial, caseSensitive) {
     if (caseSensitive == undefined) {
         caseSensitive = true;
     }
+    if (typeof stringToMatch != "string") {
+        stringToMatch = stringToMatch.toString();
+    }
     //Escape regex characters from likeCondition
     likeCondition = likeCondition.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
     if (!caseSensitive) {
