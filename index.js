@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 function like(stringToMatch, likeCondition, matchPartial, caseSensitive) {
+    //Set default values
+    if (stringToMatch == undefined) {
+        stringToMatch = "";
+    }
+    if (likeCondition == undefined) {
+        likeCondition = "";
+    }
     if (matchPartial == undefined) {
         matchPartial = false;
     }

@@ -1,4 +1,11 @@
 export function like(stringToMatch: string, likeCondition : string, matchPartial?: boolean, caseSensitive?: boolean): boolean {
+    //Set default values
+    if(stringToMatch == undefined) {
+        stringToMatch = "";
+    }
+    if(likeCondition == undefined) { 
+        likeCondition = "";
+    }
     if(matchPartial == undefined) {
         matchPartial = false;
     }
