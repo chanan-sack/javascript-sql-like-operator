@@ -8,7 +8,7 @@ boolean followed by an optional case sensitive boolean.
 
 Partial match defaults to false and case sensitive defaults to true.
 
-`
+```
 var like = require('sql-like-operator')
 
 like.like("hey", "hey")
@@ -22,4 +22,4 @@ like.like("hey1", "hey", true)
 
 like.like("hEy1", "hey", true, false)
 //result: true
-`
+```
